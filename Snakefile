@@ -1,8 +1,8 @@
+shell.prefix("source ~/.bash_profile; set -euo pipefail;")
 from util.varsub import varsub
 configfile: "config.yaml"
 varsub(config)
 
-shell.prefix("source ~/.bash_profile; set -euo pipefail;")
 freeze = config['freeze']
 
 SAMPLES, = glob_wildcards(config['datadirs']['fastq'] + "/" + "{file}_1.fq.gz")
