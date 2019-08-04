@@ -1,8 +1,8 @@
-<!--  RNA_Seq-Analysis-workflow -->
+# RNA_Seq-Analysis-workflow
 
 RNA-Seq analyis using STAR two pass mode for alliging the raw reads and RSEM for transcript quantification using snakemake workflow. 
 
- <!--Required Tools  -->
+# Required Tools  
 
  - FastQC (Quality Control) 
 
@@ -17,7 +17,7 @@ RNA-Seq analyis using STAR two pass mode for alliging the raw reads and RSEM for
  - RSEM(Transcript Quantification)
 
 
-<!--  Setting upconda environment for tools and their dependencies--> 
+# Setting upconda environment for tools and their dependencies 
 
 Install anaconda or load it if its already on your server
 
@@ -32,10 +32,10 @@ conda install -c bioconda fastqc
 conda install -c bioconda rsem
 
 
-<!--  generate the .txt report of all fastqc "run fastqc-summary script in fastqc output directory" -->
+# generate the .txt report of all fastqc "run fastqc-summary script in fastqc output directory" 
 
 python3  fastqc-summary  -s  $INDIR  >  "QC_Report.txt"
 
-<!-- Run the pipeline on cluster using this command 'modify cluster.json  parameters according to your cluster configuration -->
+# Run the pipeline on cluster using this command 'modify cluster.json  parameters according to your cluster configuration 
 
 snakemake -j 999 --configfile config.yaml --use-conda --nolock --cluster-config cluster.json --cluster "sbatch -A {cluster.account} -p {cluster.partition}  -N {cluster.N} -n {cluster.n}  -t {cluster.time} --mem {cluster.mem}"
