@@ -16,6 +16,7 @@ RNA-Seq analyis using STAR two pass mode for alliging the raw reads and RSEM for
 
  - RSEM(Transcript Quantification)
 
+
 <!--  Setting upconda environment for tools and their dependencies--> 
 
 Install anaconda or load it if its already on your server
