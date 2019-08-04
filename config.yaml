@@ -1,0 +1,47 @@
+freeze: hg38
+############################################################
+# top level directories
+sourcedir: /ss/qm/qpject/CG/R/CL/cTL/expression
+refdir: /*****/m***c/Reference_genomes
+############################################################
+# software, binaries or tools
+tools:
+  fastq: fastqc
+  star: STAR
+  trimgalore: trim_galore
+  rsem:
+    calcexp: rsem-calculate-expression
+    prepref: rsem-prepare-reference
+# reference files, genome indices and data
+
+reference:
+  stargenomedir:
+    hg38: $refdir/starindex2/hg38index2/hg38
+
+  fasta:
+    hg38: $refdir/hg38/Homo_sapiens_assembly38.fasta 
+
+  gtf:
+    hg38: $refdir/hg38/gencode.v30.annotation.gtf
+  
+
+  star_ref: "/&&&/****c/Reference_genomes/starindex/hg38index/SAindex"
+
+  rsemgenomedir:
+    hg38: $refdir/rsemindex/hg38/hg38
+
+  collapsed_gtf: $sourcedir/RNA-SeqC/gencode.v30.GRCh38.genes.gtf
+
+# directory structure for input and output files
+
+datadirs:
+  fastq: $sourcedir/demo_data
+  trim: $sourcedir/trimmed_files
+  fatsqctrim: $sourcedir/qc_output2
+  bam: $sourcedir/pass1
+  quant: $sourcedir/quant
+  sj_files: $sourcedir/sj_files 
+  rnaseq_qc: $sourcedir/RNA-SeqC
+  qc: $sourcedir/qc_output
+  pass2: $sourcedir/pass2
+  dedup: $sourcedir/dedup
