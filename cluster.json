@@ -1,0 +1,51 @@
+{
+	"__default__": {
+		"account": "**********",
+		"time": "12:00:00",
+		"n": 6,
+		"N": 3,
+		"mem": 40000,
+		"partition": "parallel"
+	},
+	"rule fastqc": {
+		"time": "05: 00: 00",
+		"mem": 10000
+	},
+	"rule trim_galore_pe": {
+		"time": "05: 00: 00",
+		"mem": 20000
+	},
+	"rule fastqctrim": {
+		"time": "05: 00: 00",
+		"mem": 10000
+	},
+	"rule pass1": {
+		"time": "05: 00: 00"
+	},
+	"rule rsem_genome": {
+		"time": "05: 00: 00",
+		"mem": 5000
+              
+	},
+	"rule merge": {
+		"time": "05: 00: 00",
+		"mem": 10000
+	},
+	"rule star_genome": {
+		"time": "05: 00: 00"
+	},
+	"rule pass2": {
+		"time": "05: 00: 00"
+	},
+        "rule mark_dups": {
+                "time": "05: 00: 00"
+                
+        },
+        "rule RNA_SeqC": {
+                "time": "05: 00: 00"
+        },
+	"rule rsem_norm": {
+		"time": "05: 00: 00"
+	}
+
+}
