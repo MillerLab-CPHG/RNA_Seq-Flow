@@ -17,6 +17,6 @@ Required Tools
 6 - RSEM(Transcript Quantification)
 
 
-# run the pipeline on cluster using this cammand 'modify parameters according to your cluster configuration
+# Run the pipeline on cluster using this cammand 'modify parameters according to your cluster configuration
 
 snakemake -j 999 --configfile config.yaml --use-conda --nolock --cluster-config cluster.json --cluster "sbatch -A {cluster.account} -p {cluster.partition}  -N {cluster.N} -n {cluster.n}  -t {cluster.time} --mem {cluster.mem}"
