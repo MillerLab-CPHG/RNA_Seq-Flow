@@ -19,10 +19,15 @@ Required Tools
 # Setting upconda environment for tools and their dependencies
 
 Install anaconda or load it if its already on your server
+
 conda create --name rnaseq-env
+
 source activate rnaseq-env
+
 conda install -c bioconda star
+
 conda install -c bioconda fastqc
+
 conda install -c bioconda rsem
 
 
