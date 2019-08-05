@@ -19,7 +19,7 @@ reference:
     hg38: $refdir/starindex2/hg38index2/hg38
 
   fasta:
-    hg38: $refdir/hg38/Homo_sapiens_assembly38.fasta 
+    hg38: $refdir/hg38/hg38.fa 
 
   gtf:
     hg38: $refdir/hg38/gencode.v30.annotation.gtf
