@@ -1,4 +1,4 @@
-# RNA_Seq-Analysis-workflow
+# RNA-Seq-Analysis 
 
 RNA-Seq analyis using STAR two pass mode for alliging the raw reads and RSEM for transcript quantification using snakemake workflow. 
 
