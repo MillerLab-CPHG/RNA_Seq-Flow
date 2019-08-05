@@ -3,7 +3,7 @@ from util.varsub import varsub
 configfile: "config.yaml"
 varsub(config)
 
-freeze = config['freeze']
+#Wildcard rule which takes all the fastq files ending with .fq.gz
 
 SAMPLES, = glob_wildcards(config['datadirs']['fastq'] + "/" + "{file}_1.fq.gz")
 READS = ["1", "2"]
@@ -11,7 +11,7 @@ READS = ["1", "2"]
 
 rule all:
    input:
-        config['reference']['rsemgenomedir'][freeze] + ".n2g.idx.fa",
+        config['reference']['rsemgenomedir']['hg38'] + ".n2g.idx.fa",
         config['reference']['stargenomedir']['hg38'] + "/" + "SAindex",       
         expand(config['datadirs']['qc'] + "/" + "{file}_{read}_fastqc.html", file = SAMPLES, read = READS),
         expand(config['datadirs']['trim'] + "/" + "{file}_{read}_val_{read}.fq.gz", file = SAMPLES, read= READS),
@@ -114,7 +114,7 @@ rule rsem_genome:
     input:
         fasta = config['reference']['fasta']['hg38'],
         gtf = config['reference']['gtf']['hg38'],
-        genomedir = config['reference']['rsemgenomedir'][freeze]
+        genomedir = config['reference']['rsemgenomedir']['hg38']
     output:
         rsemindex = config['reference']['rsemgenomedir'][freeze] + ".n2g.idx.fa"
     params:
@@ -142,7 +142,7 @@ rule star_genome:
     input:
         fasta = config['reference']['fasta']['hg38'],
         gtf = config['reference']['gtf']['hg38'],
-        sjs = "/sfs/qumulo/qproject/CPHG/MILLER/CAD_QTL/coronary_QTL/expression/sj_files/SJ.out.pass1_merged.tab",
+        sjs =  config['datadirs']['sj_files'] + "/" + "SJ.out.pass1_merged.tab",
         genomedir = config['reference']['stargenomedir']['hg38'],
         queue = rules.merge.output.sjs
     output:
