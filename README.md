@@ -38,5 +38,5 @@ RNA-Seq analyis using STAR two pass mode for alliging the raw reads and RSEM for
 ```
 ## Run the pipeline on cluster using this command 'modify cluster.json  parameters according to your cluster configuration 
 ```python
- snakemake -j 999 --configfile config.yaml --use-conda --nolock --cluster-config cluster.json --cluster "sbatch -A {cluster.account} -p {cluster.partition}  -N {cluster.N} -n {cluster.n}  -t {cluster.time} --mem {cluster.mem}"
+snakemake -j 999 --configfile config.yaml --use-conda --nolock --cluster-config cluster.json --cluster "sbatch -A {cluster.account} -p {cluster.partition}  -N {cluster.N} -n {cluster.n}  -t {cluster.time} --mem {cluster.mem}"
 ```
