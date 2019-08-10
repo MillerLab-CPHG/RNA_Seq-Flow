@@ -34,7 +34,7 @@ conda install -c bioconda rsem
 
 ## generate the .txt report of all fastqc "run fastqc-summary script in fastqc output directory" 
 
-python3  fastqc-summary  -s  $INDIR  >  "QC_Report.txt"
+'''python3  fastqc-summary  -s  $INDIR  >  "QC_Report.txt" '''
 
 ## Run the pipeline on cluster using this command 'modify cluster.json  parameters according to your cluster configuration 
 
