@@ -21,7 +21,7 @@ RNA-Seq analyis using STAR two pass mode for alliging the raw reads and RSEM for
 
 ## Setting upconda environment for tools and their dependencies 
 
-* Install anaconda or load it if its already on your server
+* Install anaconda or load it if it's already on your server
 
 * conda create --name rnaseq-env
 
@@ -34,7 +34,7 @@ RNA-Seq analyis using STAR two pass mode for alliging the raw reads and RSEM for
 * conda install -c bioconda rsem
 
 
-#### Generate the .txt report of all fastqc "run fastqc-summary script in fastqc output directory" 
+#### Generate the combined fastqc report of all the samples (.txt)" 
 ```
  python3 fastqc-summary -s $INDIR > "QC_Report.txt"
 ```
