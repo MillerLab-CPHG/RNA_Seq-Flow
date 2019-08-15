@@ -10,7 +10,7 @@ RNA-Seq analyis using STAR two pass mode for alliging the raw reads and RSEM for
 
  * [Trim-galore](https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/) (Automates quality  control and adapter trimming of fastq files)
 
- * [STAR](https://github.com/alexdobin/STAR) (Spliced aware ultrafast transcript alligner to refernece genome)
+ * [STAR](https://github.com/alexdobin/STAR) (Spliced aware ultrafast transcript alligner to reference genome)
 
  * [Picard](https://broadinstitute.github.io/picard/) (Cammand line set  tool to manipulate high-throughput sequencing data)
 
