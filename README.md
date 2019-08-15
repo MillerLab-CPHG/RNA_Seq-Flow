@@ -6,22 +6,22 @@ RNA-Seq analyis using STAR two pass mode for alliging the raw reads and RSEM for
 
 ## Required Tools  
 
- * FastQC (Quality Control) 
+ * [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) (A quality control tool for high throughput sequence data)
 
- * Trim-galore ( Adapter Trimming)
+ * [Trim-galore](https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/) (Automates quality  control and adapter trimming of fastq files)
 
- * STAR (Allign the reads to reference genome) 
+ * [STAR](https://github.com/alexdobin/STAR) (Spliced aware ultrafast transcript alligner to refernece genome)
 
- * Picard (Remove Duplicates)
+ * [Picard](https://broadinstitute.github.io/picard/) (Cammand line set  tool to manipulate high-throughput sequencing data)
 
- * RNA-SeQC(Qualiy Control of RNA-Seq data)
+ * [RNA-SeQC](https://software.broadinstitute.org/cancer/cga/rna-seqc) (Qualiy Control metrices of RNA-Seq data)
 
- * RSEM(Transcript Quantification)
+ * [RSEM](https://github.com/deweylab/RSEM) (Accurate quantification of gene and isoform expression levels from RNA-Seq data)
 
 
-## Setting upconda environment for tools and their dependencies 
+## Setting up conda environment for tools and their dependencies 
 
-* Install anaconda or load it if it's already on your server
+* Install [anaconda](https://docs.anaconda.com/anaconda/install/) or load it if it's already on your server
 
 * conda create --name rnaseq-env
 
