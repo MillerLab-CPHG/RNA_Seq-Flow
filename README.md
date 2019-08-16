@@ -33,6 +33,10 @@ RNA-Seq analyis using STAR two pass mode for alliging the raw reads and RSEM for
 
 * conda install -c bioconda rsem
 
+#### Use STAR to index the genome for 1st pass allignment, the 2nd pass allignemnt uses the new index from merged SJ.out.tab files from the  script
+```
+ STAR  --runMode genomeGenerate --runThreadN 24 --genomeDir ./ --genomeFastaFiles hg38.fa
+```
 
 #### Generate the combined fastqc report of all the samples (.txt)" 
 ```
