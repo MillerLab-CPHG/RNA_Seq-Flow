@@ -212,8 +212,8 @@ rule mark_dups:
     resources:
        mem_mb = 10000
     shell: """
-         mkdir -p dedup
-        {params.picard} MarkDuplicates {params.rm} INPUT={input.bam} OUTPUT={output.dbam} METRICS_FILE={output.metric}
+         module load picard
+         {params.picard} MarkDuplicates {params.rm} INPUT={input.bam} OUTPUT={output.dbam} METRICS_FILE={output.metric}
           """
 
 
