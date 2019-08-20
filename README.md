@@ -78,8 +78,8 @@ for line in exon_gtf:
 ```python
 python3 collapse_annotation.py gencode.v30.GRCh38.genes.gtf gencode.v30.GRCh38.genes.gtf
 cat gencode.v30.GRCh38.genes.gtf ERCC92.genes.patched.gtf \
-    > gencode.v30.ERCC.genes.gtf
-#### Run the pipeline on cluster using this command 'modify cluster.json  parameters according to your cluster configuration 
+    > gencode.v30.ERCC.genes.gtf 
 ```
+#### to run the pipeline on cluster modify the cluster.json file according to cluster configuration
 snakemake -j 999 --configfile config.yaml --use-conda --nolock --cluster-config cluster.json --cluster "sbatch -A {cluster.account} -p {cluster.partition}  -N {cluster.N} -n {cluster.n}  -t {cluster.time} --mem {cluster.mem}"
 ```
