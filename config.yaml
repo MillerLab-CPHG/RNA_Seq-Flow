@@ -18,7 +18,7 @@ reference:
     hg38: $refdir/starindex2/hg38index2/hg38
 
   fasta:
-    hg38: $refdir/hg38/hg38.fa 
+    hg38: $refdir/hg38/hg38_noALT_noHLA_noDecoy_ERCC.fa 
 
   gtf:
     hg38: $refdir/hg38/gencode.v30.annotation.gtf
@@ -29,7 +29,7 @@ reference:
   rsemgenomedir:
     hg38: $refdir/rsemindex/hg38/hg38
 
-  collapsed_gtf: $sourcedir/RNA-SeqC/gencode.v30.GRCh38.genes.gtf
+  collapsed_gtf: $sourcedir/RNA-SeqC/gencode.v30.ERCC.genes.gtf
 
 # directory structure for input and output files
 

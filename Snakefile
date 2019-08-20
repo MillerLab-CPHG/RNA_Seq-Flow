@@ -224,12 +224,14 @@ rule RNA_SeqC:
         fasta = config['reference']['fasta']['hg38'],
         bam = config['datadirs']['dedup'] + "/" + "{file}_Aligned.sortedByCoord.out.md.bam"
     output: config['datadirs']['rnaseq_qc'] + "/" + "{file}_Aligned.sortedByCoord.out.md.bam.metrics.tsv",
+    params:
+        prefix = config['datadirs']['rnaseq_qc']
     resources:
         mem_mb= 10000
     shell:
         """
          source ~/.profile
-         rnaseqc {input.gtf} {input.bam}  RNA-SeqC --verbose
+         rnaseqc {input.gtf} {input.bam} --fasta={input.fasta} {params.prefix} --verbose
         """
 
 
