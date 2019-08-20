@@ -1,6 +1,6 @@
 # RNA-Seq-Flow
 
-RNA-Seq analyis using STAR two pass mode for alliging the raw reads and RSEM for transcript quantification using snakemake workflow.
+RNA-Seq Flow is the script written in python snakemake format which starts from the raw fastq files and ends all the way to give you gene and Isoform level count using RSEM, to Increase the mapping effeciency, it does 2nd pass STAR Allignment by indexing the genome again using the merged SJ.0UT.tab files from the 1st pass. for the quality control it does Fastqc as well as does trimming though Trim-Galore.
   
    ![workflow](DAG.png) 
 
