@@ -83,5 +83,5 @@ cat gencode.v30.GRCh38.genes.gtf ERCC92.genes.patched.gtf \
 #### To run the pipeline on cluster, modify the cluster.json parameters according to cluster configuration
 
 ```python
-snakemake -j 999 --configfile config.yaml --use-conda --nolock --cluster-config cluster.json --cluster "sbatch -A {cluster.account} -p {cluster.partition}  -N {cluster.N} -n {cluster.n}  -t {cluster.time} --mem {cluster.mem}"
+ snakemake -j 999 --configfile config.yaml --use-conda --nolock --cluster-config cluster.json --cluster "sbatch -A {cluster.account} -p {cluster.partition}  -N {cluster.N} -n {cluster.n}  -t {cluster.time} --mem {cluster.mem}"
 ``` 
