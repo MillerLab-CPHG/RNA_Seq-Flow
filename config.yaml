@@ -21,7 +21,7 @@ reference:
     hg38: $refdir/hg38/hg38_noALT_noHLA_noDecoy_ERCC.fa 
 
   gtf:
-    hg38: $refdir/hg38/gencode.v26.annotation.ERCC.gtf  
+    hg38: $refdir/hg38/gencode.v30.annotation.ERCC.gtf  
   
 
   star_ref: "/&&&/****c/Reference_genomes/starindex/hg38index/SAindex"
