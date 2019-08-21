@@ -115,7 +115,7 @@ rule rsem_genome:
         gtf = config['reference']['gtf']['hg38'],
         genomedir = config['reference']['rsemgenomedir']['hg38']
     output:
-        rsemindex = config['reference']['rsemgenomedir'][freeze] + ".n2g.idx.fa"
+        rsemindex = config['reference']['rsemgenomedir']['hg38'] + ".n2g.idx.fa"
     params:
         prepref = config['tools']['rsem']['prepref']
     threads: 6
