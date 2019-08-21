@@ -33,7 +33,6 @@ rule fastqc:
       mem_mb= 10000
    shell:
         """
-        mkdir -p qc_output
         fastqc  --thread 8 --outdir {params.prefix} --nogroup {input.f1}
         """
           
@@ -52,7 +51,6 @@ rule trim_galore_pe:
       mem_mb= 20000
    shell:
         """
-        mkdir -p trimmed_files 
         trim_galore \
         {params.extra} \
         --paired {input.f1} {input.f2} \
@@ -64,12 +62,13 @@ rule fastqctrim:
       f1 = config['datadirs']['trim'] + "/" + "{file}_{read}_val_{read}.fq.gz",
       trimmedFiles = rules.trim_galore_pe.output.rev_pai 
    output: config['datadirs']['fatsqctrim'] + "/" +"{file}_{read}_val_{read}_fastqc.html"
+   params:
+      preefix = config['datadirs']['fatsqctrim'],
    resources:
       mem_mb= 10000
    shell:
         """
-       mkdir -p qc_output2
-       fastqc  --thread 8 --outdir qc_output2 --nogroup {input.f1}
+       fastqc  --thread 8 --outdir {params.prefix} --nogroup {input.f1}
        """         
 
 
