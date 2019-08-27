@@ -13,9 +13,9 @@ DIRIN= /bam
 
 
 # Output file
-stat=Pass1_flagstat.txt
+FOUT=flagstat2.txt
 
 for file in `find $DIRIN -type f -name "*.bam" | sort`; do
                 echo $file >> $FOUT;
-        samtools flagstat $file >> $stat;
-done
+        samtools flagstat $file >> $FOUT;
+don
