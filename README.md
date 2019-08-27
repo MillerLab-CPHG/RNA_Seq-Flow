@@ -35,7 +35,7 @@ RNA-Seq Flow is the script written in python snakemake format which starts from 
 
 #### Use STAR to index the genome for 1st pass allignment, the 2nd pass allignemnt uses the new index from merged SJ.out.tab files from the  script
 ```
- STAR  --runMode genomeGenerate --runThreadN 24 --genomeDir ./ --genomeFastaFiles hg38_noALT_noHLA_noDecoy_ERCC.fa 
+ STAR  --runMode genomeGenerate --runThreadN 24 --genomeDir ./ --genomeFastaFiles hg38_noALT_noHLA_noDecoy_ERCC.fa  --sjdbGTFfile  gencode.v30.annotation.ERCC.gtf 
 ```
 
 #### To Generate the combined fastqc report of all the samples (.txt)" 
