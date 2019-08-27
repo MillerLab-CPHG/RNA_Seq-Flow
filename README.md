@@ -76,7 +76,7 @@ for line in exon_gtf:
  ```   
 #### To quantify the gene expression levels and compatibility with RNA-SeQC, the gencode GTF needs to be collapsed using the `GTex` script [collapse_annotation.py](https://github.com/broadinstitute/gtex-pipeline/blob/master/gene_model/collapse_annotation.py)
 ```python
-python3 collapse_annotation.py gencode.v30.annotation.ERCC.gtf  gencode.v30.GRCh38.genes.gtf
+python3 collapse_annotation.py gencode.v30.annotation.ERCC.gtf gencode.v30.GRCh38.genes.gtf
 cat gencode.v30.GRCh38.genes.gtf ERCC92.genes.patched.gtf \
     > gencode.v30.ERCC.genes.gtf 
 ```
