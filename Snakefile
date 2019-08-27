@@ -206,13 +206,12 @@ rule mark_dups:
        dbam = config['datadirs']['dedup'] + "/" + "{file}_Aligned.sortedByCoord.out.md.bam",
        metric = config['datadirs']['dedup'] + "/" + "{file}_Aligned.sortedByCoord.out.metrics.txt"
     params:
-       picard = "java -jar $EBROOTPICARD/picard.jar",
-       rm =  "REMOVE_DUPLICATES=true"
+       picard = "java -jar $EBROOTPICARD/picard.jar"
     resources:
        mem_mb = 10000
     shell: """
          module load picard
-         {params.picard} MarkDuplicates {params.rm} INPUT={input.bam} OUTPUT={output.dbam} METRICS_FILE={output.metric}
+         {params.picard} MarkDuplicates INPUT={input.bam} OUTPUT={output.dbam} METRICS_FILE={output.metric} ASSUME_SORT_ORDER=coordinate OPTICAL_DUPLICATE_PIXEL_DISTANCE=100
           """
 
 
