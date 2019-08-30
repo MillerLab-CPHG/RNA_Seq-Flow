@@ -182,22 +182,32 @@ rule pass2:
         --readFilesIn {input.f1} {input.f2} \
         --readFilesCommand zcat \
         --outFileNamePrefix {params.prefix} \
-        --outSAMtype BAM SortedByCoordinate \
-        --outSAMunmapped Within \
-        --quantMode TranscriptomeSAM \
-        --outSAMattributes NH HI AS NM MD \
-        --outFilterType BySJout \
         --outFilterMultimapNmax 20 \
+        --alignSJoverhangMin 8 \
+        --alignSJDBoverhangMin 1 \
         --outFilterMismatchNmax 999 \
-        --outFilterMismatchNoverReadLmax 0.04 \
+        --outFilterMismatchNoverLmax 0.1 \
         --alignIntronMin 20 \
         --alignIntronMax 1000000 \
         --alignMatesGapMax 1000000 \
-        --alignSJoverhangMin 8 \
-        --alignSJDBoverhangMin 1 \
-        --sjdbScore 1 \
-        --limitBAMsortRAM 50000000000
-        """
+        --outFilterType BySJout \
+        --outFilterScoreMinOverLread 0.33 \
+        --outFilterMatchNminOverLread 0.33 \
+        --outSAMstrandField intronMotif \
+        --outFilterIntronMotifs None \
+        --alignSoftClipAtReferenceEnds Yes \
+        --quantMode TranscriptomeSAM GeneCounts \
+        --outSAMtype  BAM SortedByCoordinate  \
+        --outSAMunmapped Within \
+        --genomeLoad NoSharedMemory \
+        --chimSegmentMin 15 \
+        --chimJunctionOverhangMin 15 \
+        --chimOutType WithinBAM SoftClip \
+        --chimMainSegmentMultNmax 1 \
+        --outSAMattributes NH HI AS nM NM ch \
+        --outSAMattrRGline ID:rg1 SM:sm1
+
+        
 
 rule mark_dups:
     input:
@@ -229,7 +239,7 @@ rule RNA_SeqC:
     shell:
         """
          source ~/.profile
-         rnaseqc {input.gtf} {input.bam} --fasta={input.fasta} {params.prefix} --verbose
+         rnaseqc {input.gtf} {input.bam} {params.prefix} --verbose
         """
 
 
