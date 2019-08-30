@@ -206,10 +206,9 @@ rule pass2:
         --chimMainSegmentMultNmax 1 \
         --outSAMattributes NH HI AS nM NM ch \
         --outSAMattrRGline ID:rg1 SM:sm1
+        """
 
-        
-
-rule mark_dups:
+  rule mark_dups:
     input:
        bam = config['datadirs']['pass2'] + "/" + "{file}_Aligned.sortedByCoord.out.bam"
     output:
@@ -221,7 +220,7 @@ rule mark_dups:
        mem_mb = 10000
     shell: """
          module load picard
-         {params.picard} MarkDuplicates INPUT={input.bam} OUTPUT={output.dbam} METRICS_FILE={output.metric} ASSUME_SORT_ORDER=coordinate OPTICAL_DUPLICATE_PIXEL_DISTANCE=100
+        {params.picard} MarkDuplicates  INPUT={input.bam} OUTPUT={output.dbam} METRICS_FILE={output.metric} ASSUME_SORT_ORDER=coordinate OPTICAL_DUPLICATE_PIXEL_DISTANCE=100
           """
 
 
@@ -233,13 +232,13 @@ rule RNA_SeqC:
         bam = config['datadirs']['dedup'] + "/" + "{file}_Aligned.sortedByCoord.out.md.bam"
     output: config['datadirs']['rnaseq_qc'] + "/" + "{file}_Aligned.sortedByCoord.out.md.bam.metrics.tsv",
     params:
-        prefix = config['datadirs']['rnaseq_qc']
+        prefix = config['datadirs']['rnaseq_qc'],
     resources:
         mem_mb= 10000
     shell:
         """
          source ~/.profile
-         rnaseqc {input.gtf} {input.bam} {params.prefix} --verbose d
+         rnaseqc {input.gtf} {input.bam} {params.prefix} --verbose
         """
 
 
@@ -266,5 +265,4 @@ rule rsem_norm:
         --seed-length 25 \
         --fragment-length-mean -1.0 \
         --bam {input.bam} {params.genomedir} {params.prefix}
-        """
-
+        """      
