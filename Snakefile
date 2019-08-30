@@ -31,8 +31,7 @@ rule fastqc:
       prefix =  config['datadirs']['qc'],
    resources:
       mem_mb= 10000
-   shell:
-        """
+   shell:"""
         fastqc  --thread 8 --outdir {params.prefix} --nogroup {input.f1}
         """
           
@@ -49,8 +48,7 @@ rule trim_galore_pe:
       prefix =  config['datadirs']['trim'],
    resources:
       mem_mb= 20000
-   shell:
-        """
+   shell:"""
         trim_galore \
         {params.extra} \
         --paired {input.f1} {input.f2} \
@@ -66,8 +64,7 @@ rule fastqctrim:
       preefix = config['datadirs']['fatsqctrim'],
    resources:
       mem_mb= 10000
-   shell:
-        """
+   shell:"""
        fastqc  --thread 8 --outdir {params.prefix} --nogroup {input.f1}
        """         
 
@@ -119,8 +116,7 @@ rule rsem_genome:
     params:
         prepref = config['tools']['rsem']['prepref']
     threads: 6
-    shell:
-        """
+    shell:"""
         {params.prepref} \
         -p {threads} \
         --gtf {input.gtf} {input.fasta} {input.genomedir}
@@ -235,8 +231,7 @@ rule RNA_SeqC:
         prefix = config['datadirs']['rnaseq_qc'],
     resources:
         mem_mb= 10000
-    shell:
-        """
+    shell:"""
          source ~/.profile
          rnaseqc {input.gtf} {input.bam} {params.prefix} --verbose
         """
