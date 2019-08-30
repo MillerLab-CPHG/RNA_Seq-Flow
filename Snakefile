@@ -123,12 +123,12 @@ rule rsem_genome:
         """
 
 rule merge:
-   input:
-     sjs =  expand(config['datadirs']['bam'] + "/" + "{file}_SJ.out.tab" , file = SAMPLES )
-   output:
-     sjs=  config['datadirs']['sj_files'] + "/" + "SJ.out.pass1_merged.tab"
-   threads: 1
-   shell: """
+    input:
+      sjs =  expand(config['datadirs']['bam'] + "/" + "{file}_SJ.out.tab" , file = SAMPLES )
+    output:
+      sjs=  config['datadirs']['sj_files'] + "/" + "SJ.out.pass1_merged.tab"
+    threads: 1
+    shell: """
          cat {input.sjs} | awk '$7 >= 3' | cut -f1-4 | sort -u > {output.sjs}
           """
 
@@ -205,16 +205,16 @@ rule pass2:
         """
 
   rule mark_dups:
-    input:
-       bam = config['datadirs']['pass2'] + "/" + "{file}_Aligned.sortedByCoord.out.bam"
-    output:
-       dbam = config['datadirs']['dedup'] + "/" + "{file}_Aligned.sortedByCoord.out.md.bam",
-       metric = config['datadirs']['dedup'] + "/" + "{file}_Aligned.sortedByCoord.out.metrics.txt"
-    params:
-       picard = "java -jar $EBROOTPICARD/picard.jar"
-    resources:
-       mem_mb = 10000
-    shell: """
+     input:
+        bam = config['datadirs']['pass2'] + "/" + "{file}_Aligned.sortedByCoord.out.bam"
+     output:
+        dbam = config['datadirs']['dedup'] + "/" + "{file}_Aligned.sortedByCoord.out.md.bam",
+        metric = config['datadirs']['dedup'] + "/" + "{file}_Aligned.sortedByCoord.out.metrics.txt"
+     params:
+        picard = "java -jar $EBROOTPICARD/picard.jar"
+     resources:
+        mem_mb = 10000
+     shell: """
          module load picard
         {params.picard} MarkDuplicates  INPUT={input.bam} OUTPUT={output.dbam} METRICS_FILE={output.metric} ASSUME_SORT_ORDER=coordinate OPTICAL_DUPLICATE_PIXEL_DISTANCE=100
           """
