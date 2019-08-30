@@ -239,7 +239,7 @@ rule RNA_SeqC:
     shell:
         """
          source ~/.profile
-         rnaseqc {input.gtf} {input.bam} {params.prefix} --verbose
+         rnaseqc {input.gtf} {input.bam} {params.prefix} --verbose d
         """
 
 
